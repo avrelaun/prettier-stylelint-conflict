@@ -11,5 +11,7 @@ yarn run fix-ok:
 
 by running stylelint --fix twice, the errors caught on yarn run stylelint are caught and fixed nicely.
 
+It shouldn't have to be run twice.
+
 
 ![alt text](https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg "Wat")
