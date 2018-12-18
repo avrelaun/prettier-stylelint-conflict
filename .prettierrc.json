@@ -1,0 +1,19 @@
+{
+	"printWidth": 80,
+	"tabWidth": 2,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"bracketSpacing": true,
+	"jsxBracketSameLine": false,
+	"arrowParens": "always",
+	"overrides": [
+		{
+			"files": ["**/i18n/*.js", "**/i18n/**/*.js"],
+			"options": {
+				"printWidth": 1000
+			}
+		}
+	]
+}

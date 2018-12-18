@@ -1,0 +1,330 @@
+@import '~foundation-sites/scss/util/mixins';
+@import './icon-font';
+
+//	1.	Fonts
+//	2.	Position
+//	3.	Size
+//	4.	Alignment
+//	5.	Flex
+//	6.	Border radius
+//	7.	Icon
+//	8.	Square
+//	9.	Circle
+//	10.	Triangle
+//	11.	Button
+//	12. Animation
+//	13. Overflow
+//	14. Text overflow ellipsis
+
+// 1.	Fonts
+// ---------
+
+@mixin font-size($key) {
+	font-size: map-get($font-size-map, $key);
+}
+
+@mixin font-weight($key) {
+	font-weight: map-get($font-weight-map, $key);
+}
+
+@mixin font($color: null, $size: null, $weight: null) {
+	@if $color != null {
+		color: $color;
+	}
+
+	@if $size != null {
+		@include font-size($size);
+	}
+
+	@if $weight != null {
+		@include font-weight($weight);
+	}
+}
+
+// 2.	Position
+// ---------
+
+@mixin position(
+	$position,
+	$top: null,
+	$right: null,
+	$bottom: null,
+	$left: null,
+	$width: null,
+	$height: null
+) {
+	position: $position;
+
+	@if $top != null {
+		top: $top;
+	}
+
+	@if $right != null {
+		right: $right;
+	}
+
+	@if $bottom != null {
+		bottom: $bottom;
+	}
+
+	@if $left != null {
+		left: $left;
+	}
+
+	@if $width != null {
+		width: $width;
+	}
+
+	@if $height != null {
+		height: $height;
+	}
+}
+
+// 3.	Size
+// ---------
+
+@mixin size($width: 100%, $height: 100%) {
+	width: $width;
+	height: $height;
+}
+
+// 4.	Alignment
+// ---------
+
+@mixin padding($top: null, $right: null, $bottom: null, $left: null) {
+	@if $top != null {
+		padding-top: $top;
+	}
+
+	@if $right != null {
+		padding-right: $right;
+	}
+
+	@if $bottom != null {
+		padding-bottom: $bottom;
+	}
+
+	@if $left != null {
+		padding-left: $left;
+	}
+}
+
+// 5.	Flex
+// ---------
+
+@mixin flex(
+	$justify: null,
+	$align: null,
+	$direction: null,
+	$wrap: null,
+	$content: null
+) {
+	display: flex;
+
+	@if $justify != null {
+		justify-content: $justify;
+	}
+
+	@if $align != null {
+		align-items: $align;
+	}
+
+	@if $direction != null {
+		flex-direction: $direction;
+	}
+
+	@if $wrap != null {
+		flex-wrap: $wrap;
+	}
+
+	@if $content != null {
+		align-content: $content;
+	}
+}
+
+@mixin flex-item($grow: null, $shrink: null, $basis: null) {
+	@if $grow != null {
+		flex-grow: $grow;
+	}
+
+	@if $shrink != null {
+		flex-shrink: $shrink;
+	}
+
+	@if $basis != null {
+		flex-basis: $basis;
+	}
+}
+
+// 6.	Border radius
+// ---------
+
+@mixin border-radius($key) {
+	border-radius: map-get($border-radius-map, $key);
+}
+
+// 7.	Icon
+// ---------
+
+@mixin icon($key) {
+	$icon: map-get($icon-map, $key);
+
+	font-family: $icon-font-family;
+	content: $icon;
+}
+
+// 8.	Square
+// ---------
+
+@mixin square(
+	$size: 5rem,
+	$background: white,
+	$color: $medium-gray,
+	$border-radius: null
+) {
+	@include size($size, $size);
+
+	background-color: $background;
+	color: $color;
+	text-align: center;
+	line-height: $size;
+	padding: 0;
+
+	@if $border-radius != null {
+		border-radius: $border-radius;
+	}
+}
+
+// 9.	Circle
+// ---------
+
+@mixin circle($size: 5rem) {
+	@include square($size);
+
+	border-radius: $size / 2;
+}
+
+// 10.	Triangle
+// ---------
+
+@mixin triangle($direction: top, $size: 5rem, $color: black) {
+	width: 0;
+	height: 0;
+
+	@if $direction == top {
+		border-bottom: $size solid $color;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+	}
+
+ @else if $direction == right {
+		border-left: $size solid $color;
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+	}
+
+ @else if $direction == bottom {
+		border-top: $size solid $color;
+		border-left: $size solid transparent;
+		border-right: $size solid transparent;
+	}
+
+ @else if $direction == left {
+		border-right: $size solid $color;
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+	}
+}
+
+// 11.	Button
+// ---------
+
+@mixin button {
+	@include button-color(white, $body-font-color);
+
+	min-width: auto;
+	height: $button-height;
+	line-height: $button-height;
+	border: $border;
+}
+
+@mixin button-color($bg-color, $color: null) {
+	background-color: $bg-color;
+
+	@if $color != null {
+		color: $color;
+	}
+
+	&:hover,
+	&:focus,
+	&.disabled,
+	&.disabled:hover,
+	&.disabled:focus,
+	&[disabled],
+	&[disabled]:hover,
+	&[disabled]:focus {
+		background-color: $bg-color;
+
+		@if $color != null {
+			color: $color;
+		}
+	}
+
+	// focus removed for #886
+	// &:focus {
+	// 	background-color: darken($bg-color, 10%);
+	// }
+}
+
+// 12.	Animation
+// ---------
+
+@mixin animation(
+	$name: fade-in,
+	$duration: 0.3s,
+	$timing-function: ease,
+	$delay: 0s,
+	$count: 1
+) {
+	animation-name: $name;
+	animation-duration: $duration;
+	animation-timing-function: $timing-function;
+	animation-fill-mode: forwards;
+	animation-delay: $delay;
+	animation-iteration-count: $count;
+}
+
+// 13.	Overflow
+// ---------font-icons
+
+@mixin overflow($direction: null) {
+	@if $direction != null {
+		overflow: hidden;
+
+		@if $direction == horizontal {
+			overflow-x: auto;
+		}
+
+ @else if $direction == vertical {
+			overflow-y: auto;
+		}
+	}
+
+ @else {
+		overflow: auto;
+	}
+
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-stype: -ms-autohiding-scrollbar;
+}
+
+// 14.	Text overflow ellipsis
+// ---------
+
+@mixin text-overflow-ellipsis {
+	width: 100%;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

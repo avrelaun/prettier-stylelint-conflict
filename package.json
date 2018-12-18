@@ -1,0 +1,35 @@
+{
+	"name": "prettier",
+	"version": "1.0.0",
+	"description": "test",
+	"author": "Julien Lequertier",
+	"private": true,
+	"license": "UNLICENSED",
+	"scripts": {
+		"fix": "yarn run prettierfix && yarn run eslint --fix && yarn run stylelint --fix",
+		"fix2": "yarn run prettier && yarn run eslint --fix && yarn run stylelint --fix",
+		"prettier": "prettier --loglevel warn src/**/*.js src/**/*.vue src/**/*.scss static/*.css static/**/*.css",
+		"prettierfix": "prettier --loglevel warn --write src/**/*.js src/**/*.vue src/**/*.scss static/*.css static/**/*.css",
+		"eslint": "eslint --max-warnings 0 --report-unused-disable-directives --ext .js,.vue src",
+		"stylelint": "stylelint src/**/*.scss src/**/*.vue static/*.css static/**/*.css --mw 0"
+	},
+	"dependencies": {
+	},
+	"devDependencies": {
+		"eslint": "^5.10.0",
+		"eslint-import-resolver-webpack": "^0.10.1",
+		"eslint-loader": "^2.1.1",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-vue": "^5.0.0",
+		"prettier": "^1.15.3",
+		"stylelint": "^9.9.0",
+		"stylelint-config-recess-order": "^2.0.0",
+		"stylelint-config-standard": "^18.2.0",
+		"stylelint-no-unsupported-browser-features": "^3.0.2",
+		"stylelint-scss": "^3.4.1"
+	},
+	"engines": {
+		"node": "^10.14.2",
+		"yarn": "^1.12.3"
+	}
+}

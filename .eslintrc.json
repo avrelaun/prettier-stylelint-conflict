@@ -1,0 +1,354 @@
+{
+	"extends": ["eslint:recommended", "plugin:vue/recommended"],
+
+	"plugins": ["import", "vue"],
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": "build/webpack.base.conf.js"
+			}
+		}
+	},
+
+	"env": {
+		"node": true,
+		"browser": true,
+		"es6": true
+	},
+
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+		"parser": "espree",
+		"sourceType": "module",
+		"ecmaVersion": 9
+	},
+
+	"rules": {
+		"for-direction": 2,
+		"getter-return": 2,
+		"no-async-promise-executor": 2,
+		"no-await-in-loop": 2,
+		"no-console": 1,
+		"no-debugger": 1,
+		"no-extra-parens": 1,
+		"no-misleading-character-class": 1,
+		"no-template-curly-in-string": 1,
+		"require-atomic-updates": 2,
+
+		"array-callback-return": 2,
+		"block-scoped-var": 1,
+		"class-methods-use-this": 1,
+		"complexity": [1, 20],
+		"consistent-return": 1,
+		"curly": 1,
+		"default-case": 2,
+		"dot-location": [1, "property"],
+		"dot-notation": 2,
+		"eqeqeq": [2, "smart"],
+		"guard-for-in": 1,
+		"max-classes-per-file": [2, 1],
+		"no-alert": 1,
+		"no-caller": 2,
+		"no-div-regex": 1,
+		"no-else-return": 1,
+		"no-empty-function": 1,
+		"no-eq-null": 2,
+		"no-eval": 2,
+		"no-extend-native": 2,
+		"no-extra-bind": 1,
+		"no-extra-label": 1,
+		"no-floating-decimal": 2,
+		"no-implicit-globals": 1,
+		"no-implied-eval": 2,
+		"no-invalid-this": 1,
+		"no-iterator": 2,
+		"no-labels": 1,
+		"no-lone-blocks": 1,
+		"no-loop-func": 2,
+		"no-multi-spaces": 1,
+		"no-multi-str": 1,
+		"no-new": 1,
+		"no-new-func": 2,
+		"no-new-wrappers": 2,
+		"no-octal-escape": 2,
+		"no-proto": 2,
+		"no-restricted-globals": [
+			2,
+			{ "name": "localStorage", "message": "Use Storage from @/sevices instead" },
+			{ "name": "event", "message": "Use local parameter instead." }
+		],
+		"no-restricted-properties": [
+			2,
+			{ "object": "window", "property": "localStorage", "message": "Use Storage from @/sevices instead" },
+			{ "object": "window", "property": "env", "message": "Use CONF from @/constants instead" }
+		],
+		"no-return-assign": 1,
+		"no-return-await": 2,
+		"no-script-url": 2,
+		"no-self-compare": 2,
+		"no-sequences": 1,
+		"no-throw-literal": 1,
+		"no-unmodified-loop-condition": 1,
+		"no-unused-expressions": 1,
+		"no-useless-call": 1,
+		"no-useless-concat": 1,
+		"no-useless-escape": 1,
+		"no-useless-return": 1,
+		"no-void": 1,
+		"no-with": 1,
+		"prefer-promise-reject-errors": 1,
+		"radix": [2, "as-needed"],
+		"require-await": 1,
+		"wrap-iife": 1,
+		"yoda": 1,
+
+		"strict": 2,
+
+		"no-label-var": 2,
+		"no-shadow-restricted-names": 2,
+		"no-undef-init": 2,
+		"no-unused-vars": [
+			1,
+			{
+				"vars": "all",
+				"args": "after-used",
+				"ignoreRestSiblings": true
+			}
+		],
+
+		"array-bracket-newline": [1, "consistent"],
+		"array-bracket-spacing": [1, "never"],
+		"array-element-newline": [1, "consistent"],
+		"block-spacing": 1,
+		"brace-style": [1, "1tbs", { "allowSingleLine": true }],
+		"camelcase": [
+			1,
+			{
+				"properties": "never"
+			}
+		],
+		"comma-dangle": [1, "never"],
+		"comma-spacing": [1, { "before": false, "after": true }],
+		"comma-style": 1,
+		"computed-property-spacing": [1, "never"],
+		"eol-last": [1, "always"],
+		"func-call-spacing": [1, "never"],
+		"func-name-matching": [2, "always"],
+		"function-paren-newline": [2, "consistent"],
+		"implicit-arrow-linebreak": [1, "beside"],
+		"indent": [1, "tab", { "SwitchCase": 1 }],
+		"key-spacing": [1, { "beforeColon": false, "afterColon": true }],
+		"keyword-spacing": 1,
+		"linebreak-style": [2, "unix"],
+		"lines-between-class-members": [1, "always"],
+		"max-depth": [1, { "max": 4 }],
+		"max-len": [1, { "code": 120, "tabWidth": 4, "ignoreRegExpLiterals": true, "ignoreStrings": true }],
+		"max-lines": [1, { "max": 300, "skipBlankLines": true, "skipComments": true }],
+		"max-lines-per-function": [2, { "max": 100, "skipBlankLines": true, "skipComments": true }],
+		"max-nested-callbacks": [2, { "max": 5 }],
+		"max-params": [1, 5],
+		"max-statements": [1, 25],
+		"max-statements-per-line": [1, { "max": 1 }],
+		"new-parens": 2,
+		"newline-per-chained-call": 1,
+		"no-array-constructor": 2,
+		"no-continue": 1,
+		"no-lonely-if": 1,
+		"no-mixed-spaces-and-tabs": 1,
+		"no-multiple-empty-lines": [
+			1,
+			{
+				"max": 1,
+				"maxBOF": 0,
+				"maxEOF": 0
+			}
+		],
+		"no-negated-condition": 1,
+		"no-nested-ternary": 2,
+		"no-tabs": [2, { "allowIndentationTabs": true }],
+		"no-trailing-spaces": 1,
+		"no-underscore-dangle": 0,
+		"no-unneeded-ternary": 1,
+		"no-whitespace-before-property": 1,
+		"object-curly-spacing": [1, "always"],
+		"object-property-newline": [1, { "allowAllPropertiesOnSameLine": true }],
+		"operator-assignment": [1, "always"],
+		"operator-linebreak": [1, "after"],
+		"padded-blocks": [1, "never"],
+		"prefer-object-spread": 0,
+		"quote-props": [1, "as-needed"],
+		"quotes": [2, "single", "avoid-escape"],
+		"semi": [1, "always"],
+		"semi-spacing": [1, { "before": false, "after": true }],
+		"semi-style": [1, "last"],
+		"space-before-blocks": [1, "always"],
+		"space-before-function-paren": [1, "always"],
+		"space-in-parens": [1, "never"],
+		"space-infix-ops": 1,
+		"space-unary-ops": [1, { "words": true, "nonwords": false }],
+		"spaced-comment": [1, "always"],
+		"switch-colon-spacing": [1, { "before": false, "after": true }],
+		"template-tag-spacing": [1, "always"],
+		"unicode-bom": [2, "never"],
+
+		"arrow-parens": [1, "always"],
+		"arrow-spacing": 1,
+		"generator-star-spacing": [1, { "before": true, "after": false }],
+		"no-confusing-arrow": 1,
+		"no-duplicate-imports": 2,
+		"no-restricted-imports": [2, {
+			"paths": [{
+				"name": "moment",
+				"message": "Stop this madness, use date-fns instead"
+			}]
+		}],
+		"no-useless-computed-key": 1,
+		"no-useless-rename": 2,
+		"no-var": 2,
+		"object-shorthand": 1,
+		"prefer-arrow-callback": 1,
+		"prefer-numeric-literals": 1,
+		"prefer-rest-params": 1,
+		"prefer-spread": 1,
+		"rest-spread-spacing": [1, "never"],
+		"template-curly-spacing": 1,
+		"yield-star-spacing": [1, { "before": true, "after": false }],
+
+		"import/no-unresolved": 2,
+		"import/default": 2,
+		"import/no-restricted-paths": 2,
+		"import/no-absolute-path": 2,
+		"import/no-dynamic-require": 2,
+		"import/no-webpack-loader-syntax": 2,
+		"import/no-self-import": 2,
+
+		"import/export": 2,
+		"import/no-named-as-default": 2,
+		"import/no-named-as-default-member": 2,
+		"import/no-extraneous-dependencies": 2,
+		"import/no-mutable-exports": 2,
+
+		"import/no-commonjs": 2,
+		"import/no-amd": 2,
+		"import/no-nodejs-modules": 2,
+
+		"import/first": 2,
+		"import/no-duplicates": 2,
+		"import/extensions": [2, "never"],
+		"import/newline-after-import": 1,
+		"import/no-unassigned-import": 2,
+
+		"vue/attribute-hyphenation": [1, "always"],
+		"vue/html-closing-bracket-newline": [
+			1,
+			{
+				"singleline": "never",
+				"multiline": "always"
+			}
+		],
+		"vue/html-closing-bracket-spacing": [
+			1,
+			{
+				"startTag": "never",
+				"endTag": "never",
+				"selfClosingTag": "always"
+			}
+		],
+		"vue/html-end-tags": 1,
+		"vue/html-indent": [1, "tab"],
+		"vue/html-self-closing": [
+			1,
+			{
+				"html": {
+					"void": "never",
+					"normal": "never",
+					"component": "never"
+				},
+				"svg": "never",
+				"math": "never"
+			}
+		],
+		"vue/max-attributes-per-line": [
+			1,
+			{
+				"singleline": 4,
+				"multiline": {
+					"max": 1,
+					"allowFirstLine": false
+				}
+			}
+		],
+		"vue/mustache-interpolation-spacing": 1,
+		"vue/name-property-casing": [1, "PascalCase"],
+		"vue/no-multi-spaces": 1,
+		"vue/no-template-shadow": 2,
+		"vue/no-unused-components": 1,
+		"vue/prop-name-casing": 0,
+		"vue/require-default-prop": 0,
+		"vue/require-prop-types": 0,
+		"vue/v-bind-style": [1, "shorthand"],
+		"vue/v-on-style": [1, "shorthand"],
+
+		"vue/attributes-order": 1,
+		"vue/html-quotes": [2, "double"],
+		"vue/no-v-html": 0,
+		"vue/order-in-components": 1,
+		"vue/this-in-template": [2, "never"],
+
+		"vue/component-name-in-template-casing": [2, "kebab-case"],
+		"vue/no-spaces-around-equal-signs-in-attribute": 2,
+		"vue/use-v-on-exact": 2
+	},
+
+	"overrides": [
+		{
+			"files": ["*.vue"],
+			"rules": {
+				"max-lines": [1, { "max": 750, "skipBlankLines": true, "skipComments": true }]
+			}
+		},
+		{
+			"files": ["*.gql"],
+			"rules": {
+				"semi": [2, "never"]
+			}
+		},
+		{
+			"files": ["*.test.js"],
+			"globals": {
+				"jest": true,
+				"test": true,
+				"it": true,
+				"describe": true,
+				"beforeAll": true,
+				"beforeEach": true,
+				"afterEach": true,
+				"expect": true
+			}
+		},
+		{
+			"files": ["**/__mocks__/*.js", "test/helpers/*.js"],
+			"globals": {
+				"jest": true
+			}
+		},
+		{
+			"files": ["*.etoe.js"],
+			"globals": {
+				"test": true,
+				"fixture": true
+			},
+			"rules": {
+				"max-statements": 0
+			}
+		},
+		{
+			"files": ["build/*.js", "config/*.js"],
+			"rules": {
+				"no-console": 0,
+				"import/no-commonjs": 0,
+				"import/no-nodejs-modules": 0
+			}
+		}
+	]
+}

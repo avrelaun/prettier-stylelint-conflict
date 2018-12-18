@@ -1,0 +1,35 @@
+// 1. Extact value from element variable
+// -----------
+@function value-from-shorthand($list, $position) {
+	$val: '';
+
+	@if $position == top {
+		$val: nth($list, 1);
+	}
+
+ @else if $position == right {
+		$val: nth($list, 2);
+	}
+
+ @else if $position == bottom {
+		$val: nth($list, 3);
+	}
+
+ @else if $position == left {
+		$val: nth($list, 4);
+	}
+
+	@return $val;
+}
+
+// 2. - Get z-index
+// -----------
+@function z($key) {
+	@if map-has-key($z-layers, $key) {
+		@return map-get($z-layers, $key);
+	}
+
+	@warn "Unknown `#{$key}` in $z-layers.";
+
+	@return null;
+}

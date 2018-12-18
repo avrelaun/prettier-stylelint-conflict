@@ -1,0 +1,18 @@
+{
+	"defaultSeverity": "warning",
+	"extends": ["stylelint-config-standard"],
+	"plugins": ["stylelint-scss"],
+	"rules": {
+		"at-rule-no-unknown": null,
+		"indentation": "tab",
+		"max-empty-lines": 2,
+		"max-line-length": 200,
+		"no-empty-source": null,
+		"no-eol-whitespace": true,
+		"no-missing-end-of-source-newline": true,
+		"scss/at-rule-no-unknown": true,
+		"selector-pseudo-element-colon-notation": "single",
+		"string-no-newline": null,
+		"no-descending-specificity": null
+	}
+}

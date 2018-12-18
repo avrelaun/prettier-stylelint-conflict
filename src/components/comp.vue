@@ -1,0 +1,248 @@
+<template lang="html">
+	<div class="bee-loading-wrapper">
+		<div class="bee-loading">
+			<div class="body">
+				<div class="dart"></div>
+				<div class="stripe"></div>
+				<div class="antenna"></div>
+			</div>
+			<span class="wings"></span>
+		</div>
+		<div class="bee-loading-shadow"></div>
+	</div>
+</template>
+
+<style lang="scss">
+.bee-loading-wrapper {
+	position: absolute;
+	width: 10rem;
+	height: 10rem;
+	max-width: 100%;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%) scale(-1, 1);
+
+	&.black-and-white {
+		.bee-loading {
+			.body {
+				background-color: lighten($medium-gray, 25%);
+			}
+		}
+	}
+}
+
+.bee-loading {
+	position: absolute;
+	width: 5rem;
+	height: 5rem;
+	top: 25%;
+	left: 25%;
+	animation-name: beeLoadingFly;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+
+	@keyframes beeLoadingFly {
+		0%,
+		100% {
+			transform: translateX(0) translateY(0) translateZ(1px);
+		}
+
+		50% {
+			transform: translateX(0) translateY(20px) translateZ(1px);
+		}
+	}
+
+	.body {
+		width: 2rem;
+		height: 1rem;
+		background-color: $bk-color;
+		border-radius: 1rem;
+		position: absolute;
+		left: 1.3rem;
+		top: 2.3rem;
+		transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 14deg);
+
+		.stripe {
+			&,
+			&:before,
+			&:after {
+				content: '';
+				width: 1rem;
+				height: 1rem;
+				border-radius: 1rem;
+				background-color: transparent;
+				border: 3px solid rgba(35, 51, 75, 0.3);
+				border-top: 0;
+				border-bottom: 0;
+				border-right: 0;
+				position: absolute;
+				top: 0;
+				left: 0.1rem;
+			}
+
+			&:before {
+				left: 0.1rem;
+			}
+
+			&:after {
+				left: 0.4rem;
+			}
+		}
+	}
+
+	.dart {
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-top: 2px solid transparent;
+		border-bottom: 2px solid transparent;
+		border-right: 9px solid rgba(35, 51, 75, 0.3);
+		top: 0.3rem;
+		left: -0.5rem;
+		transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 10deg);
+	}
+
+	.antenna {
+		position: absolute;
+		top: 0;
+		left: 1rem;
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0.5rem;
+			height: 0.7rem;
+			border-radius: 0.3rem;
+			border: 2px solid rgba(35, 51, 75, 0.3);
+			border-left: 0;
+			border-bottom: 0;
+			border-right: 0;
+		}
+
+		&:before {
+			top: -0.1rem;
+			left: 0.8rem;
+			transform: rotate(-24deg);
+		}
+
+		&:after {
+			left: 0.6rem;
+			top: -0.2rem;
+			transform: rotate(-57deg);
+		}
+	}
+
+	.wings {
+		width: 2rem;
+		height: 2rem;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		perspective: 500px;
+		transform: translateX(-50%) translateY(-50%);
+
+		&:before,
+		&:after {
+			content: '';
+			position: absolute;
+			border-radius: 50%;
+			width: 2rem;
+			height: 2rem;
+			top: calc(50% - 1.6rem);
+			background: #ccc;
+			border: 3px solid rgba($secondary-color, 0.3);
+			border-right: 0;
+			animation-duration: 0.1s;
+			animation-timing-function: ease;
+			animation-iteration-count: infinite;
+		}
+
+		&:before {
+			left: -1rem;
+			opacity: 0.7;
+			border-bottom-right-radius: 0;
+			transform-origin: right top;
+			animation-name: beeLoadingWingLeft;
+			transform:
+ translateY(1.4rem) translateX(-1.2rem)
+				rotate3d(2, 1, -1, 90deg) rotateY(50deg);
+		}
+
+		&:after {
+			left: 50%;
+			opacity: 0.3;
+			border-bottom-left-radius: 0;
+			transform-origin: left top;
+			animation-name: beeLoadingWingRight;
+			transform:
+ translateY(1.4rem) translateX(-1.2rem)
+				rotate3d(2, 1, -1, 90deg) rotateY(-50deg);
+		}
+
+		@keyframes beeLoadingWingLeft {
+			0%,
+			25%,
+			50%,
+			100% {
+				transform:
+ translateY(1.4rem) translateX(-1.2rem)
+					rotate3d(2, 1, -1, 90deg) rotateY(50deg);
+			}
+
+			12.5%,
+			37.5%,
+			65% {
+				transform:
+ translateY(1.4rem) translateX(-1.2rem)
+					rotate3d(2, 1, -1, 90deg) rotateY(70deg);
+			}
+		}
+
+		@keyframes beeLoadingWingRight {
+			0%,
+			25%,
+			50%,
+			100% {
+				transform:
+ translateY(1.4rem) translateX(-1.2rem)
+					rotate3d(2, 1, -1, 90deg) rotateY(-50deg);
+			}
+
+			12.5%,
+			37.5%,
+			65% {
+				transform:
+ translateY(1.4rem) translateX(-1.2rem)
+					rotate3d(2, 1, -1, 90deg) rotateY(-70deg);
+			}
+		}
+	}
+}
+
+.bee-loading-shadow {
+	position: absolute;
+	width: 2.5rem;
+	height: 0.8rem;
+	z-index: 10;
+	bottom: 0.5rem;
+	left: 3.3rem;
+	border-radius: 100%;
+	background: rgba($secondary-color, 0.1);
+	transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 2deg) scale(1);
+	animation: beeLoadingShadow 0.5s ease infinite;
+
+	@keyframes beeLoadingShadow {
+		0%,
+		100% {
+			transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 2deg) scale(1);
+		}
+
+		50% {
+			transform: translate3d(0, 0, 0) rotate3d(0, 0, 1, 2deg) scale(0.9);
+		}
+	}
+}
+</style>
