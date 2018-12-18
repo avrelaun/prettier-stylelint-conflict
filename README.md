@@ -1,18 +1,15 @@
 # prettier-stylelint-conflict
-Sample test code to illustrate incoherent stylelint behaviour when used after prettier --write
+Sample test code to illustrate incoherent stylelint behaviour
 
 
-yarn run fix:
+yarn run fix-ko:
 
-works pretty well without errors, eslint --fix works nicely, but stylelint --fix does not fix all the issues that would be fixed by running stylelint yarn run stylelint standalone
+works pretty well without errors, eslint --fix works nicely, but stylelint --fix does not fix all the issues that would be fixed by running stylelint yarn run stylelint --fix standalone
 
 
-yarn run fix2:
+yarn run fix-ok:
 
-the only difference is the removal of the --write option in prettier, eslint works exactly the same but stylelint --fix now fixes every issues automatically.
+by running stylelint --fix twice, the errors caught on yarn run stylelint are caught and fixed nicely.
 
 
 ![alt text](https://i.kym-cdn.com/photos/images/newsfeed/000/173/576/Wat8.jpg "Wat")
-
-
-Do not know if this is yarn-related, prettier-related or stylelint-related

@@ -6,9 +6,8 @@
 	"private": true,
 	"license": "UNLICENSED",
 	"scripts": {
-		"fix": "yarn run prettierfix && yarn run eslint --fix && yarn run stylelint --fix",
-		"fix2": "yarn run prettier && yarn run eslint --fix && yarn run stylelint --fix",
-		"prettier": "prettier --loglevel warn src/**/*.js src/**/*.vue src/**/*.scss static/*.css static/**/*.css",
+		"fix-ko": "yarn run prettierfix && yarn run eslint --fix && yarn run stylelint --fix && yarn run stylelint --fix",
+		"fix-ok": "yarn run prettierfix && yarn run eslint --fix && yarn run stylelint --fix && yarn run stylelint --fix && yarn run stylelint --fix",
 		"prettierfix": "prettier --loglevel warn --write src/**/*.js src/**/*.vue src/**/*.scss static/*.css static/**/*.css",
 		"eslint": "eslint --max-warnings 0 --report-unused-disable-directives --ext .js,.vue src",
 		"stylelint": "stylelint src/**/*.scss src/**/*.vue static/*.css static/**/*.css --mw 0"
